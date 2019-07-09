@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -47,6 +48,8 @@ class UserController extends Controller
     public function show($id)
     {
         //
+        $this->authorize('view', $user);
+        return view('users.show', compact('user'));
     }
 
     /**
@@ -58,6 +61,7 @@ class UserController extends Controller
     public function edit($id)
     {
         //
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -70,6 +74,8 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $user->update(request(['first_name', 'last_name', 'email']));
+        return redirect('users/'.$user->id);
     }
 
     /**
