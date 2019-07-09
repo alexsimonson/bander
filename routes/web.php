@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//the get may be the problem here
 Route::get('/send', function(){
     return view('send');
 });
