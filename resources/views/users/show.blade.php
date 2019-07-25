@@ -2,10 +2,18 @@
 @section('title', 'User Profile')
 
 @section('content')
-    <h2>Profile</h2>
-    Name: {{$user->name}}<br>
-    Email: {{$user->email}}<br>
-    Age: {{$user->age}}<br>
+    <div class='row'>
+        <div class='col-12 col-xl-6'>
+            <card-frame>
+                <div slot='header'>
+                    <h2>Profile</h2>
+                </div>
+                <div slot='body'>
+                    <search-display-card id='{{$user->id}}' name='{{$user->name}}' bio='{{$user->bio}}' age='{{$user->age}}' image='{{$user->image}}'></search-display-card>
+                </div>
+            </card-frame>
+        </div>
+
     @php
         //this combines all matches, regardless of order into one collection
         $usersLikedFirst = $user->usersLikedFirst;
@@ -18,11 +26,22 @@
             $matches->add($user);
         }
     @endphp
-    <h2>Matches</h2>
-    @foreach ($matches as $item)
-        User ID: {{$item->id}}<br>
-        Name: {{$item->name}}<br>
-        Bio: {{$item->bio}}<br>
-    @endforeach
-    <search-display-card id='{{$user->id}}' name='{{$user->name}}' bio='{{$user->bio}}' age='{{$user->age}}' image='{{$user->image}}'></search-display-card>
+        <div class='col-12 col-xl-6'>
+            <card-frame>
+                <div slot='header'>
+                    <h2>Matches</h2>
+                </div>
+                <div slot='body'>
+                    <div class='row' style='overflow: scroll; height: 800px'>
+                        @foreach ($matches as $user)
+                        <div class='col-12 col-sm-12 col-md-6'>
+                            <search-display-card id='{{$user->id}}' name='{{$user->name}}' bio='{{$user->bio}}' age='{{$user->age}}' image='{{$user->image}}'></search-display-card>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+            </card-frame>
+        </div>
+    </div>
+    
 @endsection

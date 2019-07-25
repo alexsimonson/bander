@@ -22,6 +22,7 @@ window.axios = require('axios');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('search-display-card', require('./components/SearchDisplayCard.vue').default);
+Vue.component('card-frame', require('./components/CardFrame.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
