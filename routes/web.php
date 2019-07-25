@@ -28,3 +28,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/test', function(){
     Mail::to('shaggy7569@gmail.com')->queue(new \App\Mail\TestEmail());
 });
+
+Route::get('/search', function(){
+    return view('search');
+});

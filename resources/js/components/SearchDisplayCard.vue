@@ -4,11 +4,15 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <a v-bind:href="'/users/' + this.id">{{name}}</a>
+                        <h2><a v-bind:href="'/users/' + this.id">{{name}}</a></h2>
                     </div>
 
                     <div class="card-body">
+                        <img v-bind:src="this.image" width='100%'>
+                        <br><br>
+                        <h5>Age: {{age}}</h5>
                         {{bio}}
+
                     </div>
                 </div>
             </div>
@@ -30,9 +34,9 @@
         props:[
             'id',
             'name',
-            'bio',
-            'profile',
-            'user'
+            'image',
+            'age',
+            'bio',                        
         ]
     }
 </script>

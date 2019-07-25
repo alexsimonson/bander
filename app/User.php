@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password',
+        'name', 'email', 'password',
     ];
 
     /**
@@ -38,7 +38,11 @@ class User extends Authenticatable
     ];
 
     //see which users are currently matched up
-    public function users(){
-        return $this->belongsToMany(User::class);
+    public function usersLikedFirst(){
+        return $this->belongsToMany(User::class, 'user_user', 'user_id_first', 'user_id_second');
+    }
+
+    public function usersLikedSecond(){
+        return $this->belongsToMany(User::class, 'user_user', 'user_id_second', 'user_id_first');
     }
 }
