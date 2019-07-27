@@ -61,7 +61,9 @@ class UserController extends Controller
         foreach($usersLikedSecond as $second){
             $matches->add($second);
         }
-        return view('users.show', compact('user', 'matches'));
+
+        $groups = $user->groups;
+        return view('users.show', compact('user', 'matches', 'groups'));
     }
 
     /**

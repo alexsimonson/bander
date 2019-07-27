@@ -1959,7 +1959,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log('magical');
     }
   },
-  props: ['id', 'name', 'image', 'age', 'bio']
+  props: ['id', 'name', 'image', 'age', 'bio', 'url']
 });
 
 /***/ }),
@@ -37312,9 +37312,7 @@ var render = function() {
     _c("div", { staticClass: "card" }, [
       _c("div", { staticClass: "card-header" }, [
         _c("h2", [
-          _c("a", { attrs: { href: "/users/" + this.id } }, [
-            _vm._v(_vm._s(_vm.name))
-          ])
+          _c("a", { attrs: { href: this.url } }, [_vm._v(_vm._s(_vm.name))])
         ])
       ]),
       _vm._v(" "),
@@ -37324,7 +37322,7 @@ var render = function() {
         _c("br"),
         _c("br"),
         _vm._v(" "),
-        _c("h5", [_vm._v("Age: " + _vm._s(_vm.age))]),
+        _c("h5", [_vm._v(_vm._s(_vm.age))]),
         _vm._v("\n            " + _vm._s(_vm.bio) + "\n\n        ")
       ])
     ])
@@ -49514,7 +49512,6 @@ var app = new Vue({
     axios.get('https://jsonplaceholder.typicode.com/posts').then(function (response) {
       return console.log(response);
     });
-    console.log('big test');
   }
 });
 

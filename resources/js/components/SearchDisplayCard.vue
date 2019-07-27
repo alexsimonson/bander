@@ -2,13 +2,13 @@
     <div class="container">
         <div class="card">
             <div class="card-header">
-                <h2><a v-bind:href="'/users/' + this.id">{{name}}</a></h2>
+                <h2><a v-bind:href="this.url">{{name}}</a></h2>
             </div>
 
             <div class="card-body">
                 <img v-bind:src="this.image" width='100%'>
                 <br><br>
-                <h5>Age: {{age}}</h5>
+                <h5>{{age}}</h5>
                 {{bio}}
 
             </div>
@@ -32,7 +32,8 @@
             'name',
             'image',
             'age',
-            'bio',                        
+            'bio',
+            'url',                      
         ]
     }
 </script>

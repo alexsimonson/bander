@@ -14,7 +14,8 @@ class GroupController extends Controller
      */
     public function index()
     {
-        //
+        $groups = Group::all();
+        return view('groups.index', compact('groups'));
     }
 
     /**
@@ -47,6 +48,8 @@ class GroupController extends Controller
     public function show(Group $group)
     {
         //
+        $members = $group->members;
+        return view('groups.show', compact('group', 'members'));
     }
 
     /**

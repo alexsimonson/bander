@@ -21,6 +21,7 @@ Route::get('/send', function(){
 });
 
 Route::resource('/users', 'UserController');
+Route::resource('/groups', 'GroupController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -32,3 +33,4 @@ Route::get('/test', function(){
 Route::get('/search', function(){
     return view('search');
 });
+

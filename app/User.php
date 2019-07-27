@@ -45,4 +45,8 @@ class User extends Authenticatable
     public function usersLikedSecond(){
         return $this->belongsToMany(User::class, 'user_user', 'user_id_second', 'user_id_first');
     }
+
+    public function groups(){
+        return $this->belongsToMany(Group::class);
+    }
 }
