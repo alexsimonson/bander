@@ -1,4 +1,4 @@
-@extends('header')
+@extends('layouts.app')
 @section('title', 'User Profile')
 
 @section('content')
@@ -14,18 +14,6 @@
             </card-frame>
         </div>
 
-    @php
-        //this combines all matches, regardless of order into one collection
-        $usersLikedFirst = $user->usersLikedFirst;
-        $usersLikedSecond = $user->usersLikedSecond;
-        $matches = collect();
-        foreach($usersLikedFirst as $user){
-            $matches->add($user);
-        }
-        foreach($usersLikedSecond as $user){
-            $matches->add($user);
-        }
-    @endphp
         <div class='col-12 col-xl-6'>
             <card-frame>
                 <div slot='header'>
@@ -43,5 +31,4 @@
             </card-frame>
         </div>
     </div>
-    
 @endsection

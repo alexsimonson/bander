@@ -49514,6 +49514,7 @@ var app = new Vue({
     axios.get('https://jsonplaceholder.typicode.com/posts').then(function (response) {
       return console.log(response);
     });
+    console.log('big test');
   }
 });
 

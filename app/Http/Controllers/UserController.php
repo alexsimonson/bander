@@ -51,7 +51,17 @@ class UserController extends Controller
         //
         // $this->authorize('view', $id);
         $user = User::find($id);
-        return view('users.show', compact('user'));
+        //this combines all matches, regardless of order into one collection
+        $usersLikedFirst = $user->usersLikedFirst;
+        $usersLikedSecond = $user->usersLikedSecond;
+        $matches = collect();
+        foreach($usersLikedFirst as $first){
+            $matches->add($first);
+        }
+        foreach($usersLikedSecond as $second){
+            $matches->add($second);
+        }
+        return view('users.show', compact('user', 'matches'));
     }
 
     /**

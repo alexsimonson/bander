@@ -4,6 +4,9 @@
 @section('content')
 @php
 $userAuth = Auth::user();
+if($userAuth==null){
+    return abort(404, 'not logged in, this use case is not necessary');
+}
 $allUsers = App\User::all();
 $matches = collect();
 $ulfAuth = $userAuth->usersLikedFirst;
