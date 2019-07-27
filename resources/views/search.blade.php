@@ -1,4 +1,4 @@
-@extends('header')
+@extends('layouts.app')
 @section('title', 'Search')
 
 @section('content')
@@ -28,16 +28,22 @@ foreach($matches as $match){
 $potentialUsers = App\User::whereNotIn('id', $removeUsers)->get();
 
 @endphp
-
-@foreach ($potentialUsers as $user)
-    <card-frame>
-        <div slot='header'>
-            <h2>Profile</h2>
+<card-frame>
+    <div slot='header'>
+        <h2>Potential New Friends</h2>
+    </div>
+    
+    <div slot='body'>
+        <div class='row'>
+            @foreach ($potentialUsers as $user)
+                <div class='col-12 col-md-12 col-lg-6 col-xl-4'>
+                    <search-display-card id='{{$user->id}}' name='{{$user->name}}' bio='{{$user->bio}}' age='{{$user->age}}' image='{{$user->image}}'></search-display-card>
+                    <br>
+                    <match-request id='{{$user->id}}' name='{{$user->name}}'></match-request>
+                    <br><br>
+                </div>
+            @endforeach
         </div>
-        <div slot='body'>
-            <search-display-card id='{{$user->id}}' name='{{$user->name}}' bio='{{$user->bio}}' age='{{$user->age}}' image='{{$user->image}}'></search-display-card>
-        </div>
-    </card-frame>
-@endforeach
-
+    </div>
+</card-frame>
 @endsection

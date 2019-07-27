@@ -23,6 +23,7 @@ window.axios = require('axios');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('search-display-card', require('./components/SearchDisplayCard.vue').default);
 Vue.component('card-frame', require('./components/CardFrame.vue').default);
+Vue.component('match-request', require('./components/MatchRequest.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -34,6 +35,7 @@ const app = new Vue({
     el: '#app',
 
     mounted: function(){
-        axios.get('https://jsonplaceholder.typicode.com/posts').then(response => console.log(response));
+        // axios.get('https://jsonplaceholder.typicode.com/posts').then(response => console.log(response));
+        // console.log('test');
     }
 });

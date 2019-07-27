@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Bander') }}</title>
     
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -15,6 +15,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
 </head>
 <body>
     <div id="app">
@@ -77,11 +78,11 @@
             </div>
         </nav>
 
-        @yield('content')
         <main class="py-4">
+            @yield('content')
         </main>
     </div>
     <!-- Scripts -->
+    {{-- <!-- jQuery library --> --}}
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
-</body>
-</html>

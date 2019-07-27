@@ -19,8 +19,7 @@
 <script>
     export default {
         mounted() {
-            console.log('Component mounted.'),
-            this.setAll
+            
         },
         computed:{
             setAll: function(){
