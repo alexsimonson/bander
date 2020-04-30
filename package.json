@@ -23,7 +23,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "jquery": "^3.4.1",
+        "jquery": "^3.5.0",
         "npm-watch": "^0.6.0"
     }
 }
